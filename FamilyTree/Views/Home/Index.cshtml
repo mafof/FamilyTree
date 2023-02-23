@@ -1,8 +1,33 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h2>Генеалогическое древо</h2>
+            <p>
+                Что бы найти предков, заполните ниже данные
+            </p>
+
+            <div class="d-flex col-sm-12 col-md-6 offset-md-3 align-content-center flex-column">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="surname" placeholder="Фамилия">
+                    <label for="surname">Фамилия</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Имя">
+                    <label for="name">Имя</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="patornymic" placeholder="Отчество">
+                    <label for="patornymic">Отчество</label>
+                </div>
+
+                <button class="btn btn-success" type="submit">Найти</button>
+            </div>
+        </div>
+    </div>
 </div>
