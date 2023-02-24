@@ -23,6 +23,17 @@ namespace FamilyTree.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Search(SearchModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction(controllerName: "ListTree", actionName: "Index");
+            }
+
+            return View("Index", model);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
