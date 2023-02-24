@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SearchModel
+@{
     ViewData["Title"] = "Главная";
 }
 
@@ -10,24 +11,28 @@
                 Что бы найти предков, заполните ниже данные
             </p>
 
-            <div class="d-flex col-sm-12 col-md-6 offset-md-3 align-content-center flex-column">
+            <form class="d-flex col-sm-12 col-md-6 offset-md-3 align-content-center flex-column custom-form" method="post" asp-controller="Home" asp-action="Search" novalidate>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="surname" placeholder="Фамилия">
-                    <label for="surname">Фамилия</label>
+                    <input asp-for="Surname" class="form-control" id="surname" placeholder="Фамилия" required>
+                    <label asp-for="Surname"></label>
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                    <div class="invalid-feedback">Заполните поле Фамилия</div>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name" placeholder="Имя">
-                    <label for="name">Имя</label>
+                    <input asp-for="Name" class="form-control" id="name" placeholder="Имя" required>
+                    <label asp-for="Name"></label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <div class="invalid-feedback">Заполните поле Имя</div>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="patornymic" placeholder="Отчество">
-                    <label for="patornymic">Отчество</label>
+                    <input asp-for="Patronymic" class="form-control" id="patornymic" placeholder="Отчество">
+                    <label asp-for="Patronymic"></label>
                 </div>
 
                 <button class="btn btn-success" type="submit">Найти</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
