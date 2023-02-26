@@ -28,7 +28,7 @@ namespace FamilyTree.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction(controllerName: "ListTree", actionName: "Index");
+                return RedirectToAction("Index", "ListTree", model);
             }
 
             return View("Index", model);
