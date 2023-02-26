@@ -5,7 +5,7 @@ namespace FamilyTree.Models
 {
     public class LinkModel
     {
-        [Required] 
+        [Required]
         public int Id { get; set; }
 
         [ForeignKey("PeopleMain")]
