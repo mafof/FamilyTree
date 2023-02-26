@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FamilyTree.Models
 {
@@ -16,6 +15,8 @@ namespace FamilyTree.Models
 
         public string? Patronymic { get; set; }
 
-        public ICollection<LinkModel> Links { get; set; } = null!;
+        public ICollection<LinkModel> LinksMain { get; set; } = null!;
+
+        public ICollection<LinkModel> LinksChildren { get; set; } = null!;
     }
 }
