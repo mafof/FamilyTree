@@ -24,11 +24,6 @@ namespace FamilyTree.Controllers
             return View();
         }
 
-        public IActionResult Search(PeopleModel model)
-        {
-            return View();
-        }
-
         [HttpPost]
         public IActionResult Search(SearchModel model)
         {
@@ -41,16 +36,13 @@ namespace FamilyTree.Controllers
                         .ToList();
 
                     if (result.Count == 1) {
-                        return RedirectToAction("Index", "ListTree", new { @id = result[0].Id });
-                    } 
-                    else
-                    {
-                        return View("Search", result);
+                        return RedirectToAction("Index", "ListTree", new { id = result[0].Id, surname = result[0].Surname, name = result[0].Name, patronymic = result[0].Patronymic });
                     }
                 }
             }
 
-            return View("Search");
+            ViewBag.NotFound = true;
+            return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
