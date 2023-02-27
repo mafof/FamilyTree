@@ -202,6 +202,10 @@ namespace FamilyTree.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -221,6 +225,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 1,
+                            Gender = "Муж",
                             Name = "Святослав",
                             Patronymic = "Донатович",
                             Surname = "Калашников"
@@ -228,6 +233,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 2,
+                            Gender = "Жен",
                             Name = "Фанни",
                             Patronymic = "Игнатьевна",
                             Surname = "Калашникова"
@@ -235,6 +241,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 3,
+                            Gender = "Муж",
                             Name = "Кондрат",
                             Patronymic = "Натальевич",
                             Surname = "Мамонтов"
@@ -242,6 +249,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 4,
+                            Gender = "Жен",
                             Name = "Раиса",
                             Patronymic = "Давидовна",
                             Surname = "Мамонтова"
@@ -249,6 +257,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 5,
+                            Gender = "Муж",
                             Name = "Иван",
                             Patronymic = "Наумович",
                             Surname = "Суворов"
@@ -256,6 +265,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 6,
+                            Gender = "Жен",
                             Name = "Магдалина",
                             Patronymic = "Романовна",
                             Surname = "Суворова"
@@ -263,6 +273,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 7,
+                            Gender = "Муж",
                             Name = "Константин",
                             Patronymic = "Владимирович",
                             Surname = "Котов"
@@ -270,6 +281,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 8,
+                            Gender = "Жен",
                             Name = "Женевьева",
                             Patronymic = "Степановна",
                             Surname = "Котова"
@@ -277,6 +289,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 9,
+                            Gender = "Муж",
                             Name = "Донат",
                             Patronymic = "Святославич",
                             Surname = "Калашников"
@@ -284,6 +297,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 10,
+                            Gender = "Жен",
                             Name = "Эллина",
                             Patronymic = "Кондратовна",
                             Surname = "Мамонтова"
@@ -291,6 +305,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 11,
+                            Gender = "Муж",
                             Name = "Павел",
                             Patronymic = "Ивановна",
                             Surname = "Суворов"
@@ -298,6 +313,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 12,
+                            Gender = "Жен",
                             Name = "Эллина",
                             Patronymic = "Константинович",
                             Surname = "Котова"
@@ -305,6 +321,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 13,
+                            Gender = "Муж",
                             Name = "Михаил",
                             Patronymic = "Донатович",
                             Surname = "Калашников"
@@ -312,6 +329,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 14,
+                            Gender = "Жен",
                             Name = "Гражина",
                             Patronymic = "Павловна",
                             Surname = "Суворова"
@@ -319,6 +337,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 15,
+                            Gender = "Муж",
                             Name = "Гурий",
                             Patronymic = "Михайлович",
                             Surname = "Калашников"
@@ -326,6 +345,7 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 16,
+                            Gender = "Муж",
                             Name = "Алексей",
                             Patronymic = "Михайлович",
                             Surname = "Калашников"
@@ -333,9 +353,10 @@ namespace FamilyTree.Migrations
                         new
                         {
                             Id = 17,
+                            Gender = "Жен",
                             Name = "Римма",
                             Patronymic = "Михайловна",
-                            Surname = "Калашников"
+                            Surname = "Калашникова"
                         });
                 });
 

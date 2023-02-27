@@ -2,6 +2,7 @@
 
 namespace FamilyTree.Models
 {
+
     public class PeopleModel
     {
         [Required]
@@ -15,8 +16,11 @@ namespace FamilyTree.Models
 
         public string? Patronymic { get; set; }
 
-        public ICollection<LinkModel> LinksMain { get; set; } = null!;
+        [Required]
+        public string Gender { get; set; } = null!;
 
-        public ICollection<LinkModel> LinksChildren { get; set; } = null!;
+        public List<LinkModel> LinksMain { get; set; } = new List<LinkModel>();
+
+        public List<LinkModel> LinksChildren { get; set; } = new List<LinkModel>();
     }
 }

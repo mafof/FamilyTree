@@ -20,59 +20,58 @@ namespace FamilyTree.Services
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PeopleModel>().HasData(
-
                 // 4 уровень =>
 
                 // 1 семья =>
-                new PeopleModel { Id = 1, Surname = "Калашников", Name = "Святослав", Patronymic = "Донатович" },
-                new PeopleModel { Id = 2, Surname = "Калашникова", Name = "Фанни", Patronymic = "Игнатьевна" },
+                new PeopleModel { Id = 1, Surname = "Калашников", Name = "Святослав", Patronymic = "Донатович", Gender = "Муж" },
+                new PeopleModel { Id = 2, Surname = "Калашникова", Name = "Фанни", Patronymic = "Игнатьевна", Gender = "Жен" },
 
                 // 2 семья =>
-                new PeopleModel { Id = 3, Surname = "Мамонтов", Name = "Кондрат", Patronymic = "Натальевич" },
-                new PeopleModel { Id = 4, Surname = "Мамонтова", Name = "Раиса", Patronymic = "Давидовна" },
+                new PeopleModel { Id = 3, Surname = "Мамонтов", Name = "Кондрат", Patronymic = "Натальевич", Gender = "Муж" },
+                new PeopleModel { Id = 4, Surname = "Мамонтова", Name = "Раиса", Patronymic = "Давидовна", Gender = "Жен" },
 
                 // 3 семья =>
-                new PeopleModel { Id = 5, Surname = "Суворов", Name = "Иван", Patronymic = "Наумович" },
-                new PeopleModel { Id = 6, Surname = "Суворова", Name = "Магдалина", Patronymic = "Романовна" },
+                new PeopleModel { Id = 5, Surname = "Суворов", Name = "Иван", Patronymic = "Наумович", Gender = "Муж" },
+                new PeopleModel { Id = 6, Surname = "Суворова", Name = "Магдалина", Patronymic = "Романовна", Gender = "Жен" },
 
                 // 4 семья =>
-                new PeopleModel { Id = 7, Surname = "Котов", Name = "Константин", Patronymic = "Владимирович" },
-                new PeopleModel { Id = 8, Surname = "Котова", Name = "Женевьева", Patronymic = "Степановна" },
+                new PeopleModel { Id = 7, Surname = "Котов", Name = "Константин", Patronymic = "Владимирович", Gender = "Муж" },
+                new PeopleModel { Id = 8, Surname = "Котова", Name = "Женевьева", Patronymic = "Степановна", Gender = "Жен" },
 
                 // 3 уровень =>
 
                 // 5 семья =>
 
                 // Ребенок от 1-ой семьи
-                new PeopleModel { Id = 9, Surname = "Калашников", Name = "Донат", Patronymic = "Святославич" },
+                new PeopleModel { Id = 9, Surname = "Калашников", Name = "Донат", Patronymic = "Святославич", Gender = "Муж" },
 
                 // Ребенок от 2-ой семьи
-                new PeopleModel { Id = 10, Surname = "Мамонтова", Name = "Эллина", Patronymic = "Кондратовна" },
+                new PeopleModel { Id = 10, Surname = "Мамонтова", Name = "Эллина", Patronymic = "Кондратовна", Gender = "Жен" },
 
                 // 6 семья =>
 
                 // Ребенок от 3-ой семьи
-                new PeopleModel { Id = 11, Surname = "Суворов", Name = "Павел", Patronymic = "Ивановна" },
+                new PeopleModel { Id = 11, Surname = "Суворов", Name = "Павел", Patronymic = "Ивановна", Gender = "Муж" },
 
                 // Ребенок от 4-ей семьи
-                new PeopleModel { Id = 12, Surname = "Котова", Name = "Эллина", Patronymic = "Константинович" },
+                new PeopleModel { Id = 12, Surname = "Котова", Name = "Эллина", Patronymic = "Константинович", Gender = "Жен" },
 
                 // 2 уровень =>
 
                 // 7 семья =>
 
                 // Ребенок от 5-ой семьи
-                new PeopleModel { Id = 13, Surname = "Калашников", Name = "Михаил", Patronymic = "Донатович" },
+                new PeopleModel { Id = 13, Surname = "Калашников", Name = "Михаил", Patronymic = "Донатович", Gender = "Муж" },
 
                 // Ребенок от 6-ой семьи
-                new PeopleModel { Id = 14, Surname = "Суворова", Name = "Гражина", Patronymic = "Павловна" },
+                new PeopleModel { Id = 14, Surname = "Суворова", Name = "Гражина", Patronymic = "Павловна", Gender = "Жен" },
 
                 // 1 уровень =>
 
                 // Дети (правнуки) => 
-                new PeopleModel { Id = 15, Surname = "Калашников", Name = "Гурий", Patronymic = "Михайлович" },
-                new PeopleModel { Id = 16, Surname = "Калашников", Name = "Алексей", Patronymic = "Михайлович" },
-                new PeopleModel { Id = 17, Surname = "Калашников", Name = "Римма", Patronymic = "Михайловна" }
+                new PeopleModel { Id = 15, Surname = "Калашников", Name = "Гурий", Patronymic = "Михайлович", Gender = "Муж" },
+                new PeopleModel { Id = 16, Surname = "Калашников", Name = "Алексей", Patronymic = "Михайлович", Gender = "Муж" },
+                new PeopleModel { Id = 17, Surname = "Калашникова", Name = "Римма", Patronymic = "Михайловна", Gender = "Жен" }
             );
 
             modelBuilder.Entity<LinkModel>().HasData(
