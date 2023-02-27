@@ -1,3 +1,6 @@
+using FamilyTree.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +20,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseStatusCodePagesWithRedirects("Home/Error?statuscode={0}");
 
 app.UseAuthorization();
 

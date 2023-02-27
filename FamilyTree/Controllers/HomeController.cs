@@ -45,9 +45,15 @@ namespace FamilyTree.Controllers
             return View("Index");
         }
 
+        [HttpGet("[controller]/[action]")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(int? statuscode)
         {
+            if (statuscode == 404)
+            {
+                return View("Views/Shared/404.cshtml");
+            }
+
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
