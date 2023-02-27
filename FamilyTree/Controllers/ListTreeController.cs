@@ -1,24 +1,25 @@
-﻿using FamilyTree.Models;
+﻿using FamilyTree.Migrations;
+using FamilyTree.Models;
 using FamilyTree.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 
 namespace FamilyTree.Controllers
 {
     public class ListTreeController : Controller
-    {
-        public IActionResult Index()
-        {
-/*            using (TreeService db = new TreeService()) 
-            {
-                Debug.WriteLine("Усепешно");
+    { 
 
-                var trees = db.Tree;
-                foreach(var tree in trees) 
-                {
-                    Debug.WriteLine("{0} {1}", tree.Surname, tree.Name);
-                }
-            }*/
+        public IActionResult Index(int? id)
+        {
+            using(PeopleService db = new PeopleService())
+            {
+                var s = db.GrandMotherGreatGrandson(14);
+                Debug.WriteLine(s);
+
+            }
+
             return View();
         }
     }
