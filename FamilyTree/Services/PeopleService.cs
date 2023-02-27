@@ -1,4 +1,5 @@
-﻿using FamilyTree.Models;
+﻿using FamilyTree.Migrations;
+using FamilyTree.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FamilyTree.Services
@@ -19,6 +20,8 @@ namespace FamilyTree.Services
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasDbFunction(() => GrandMotherGreatGrandson(default));
+
             modelBuilder.Entity<PeopleModel>().HasData(
                 // 4 уровень =>
 
@@ -101,5 +104,7 @@ namespace FamilyTree.Services
 
         public DbSet<PeopleModel> People { get; set; } = null!;
         public DbSet<LinkModel> Link { get; set; } = null!;
+
+        public IQueryable<GrandMotherGreatGrandsonModel> GrandMotherGreatGrandson(int personID) => FromExpression(() => GrandMotherGreatGrandson(personID));
     }
 }
