@@ -13,9 +13,17 @@ namespace FamilyTree.Services
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            options.UseSqlServer("Server=localhost\\MSSQLSERVER01;Database=test;User Id=mafof;password=mafof;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=False;TrustServerCertificate=False;");
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                   .SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json")
+                   .Build();
+                var connectionString = configuration.GetConnectionString("DBConnetion");
+                optionsBuilder.UseSqlServer(connectionString);
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
