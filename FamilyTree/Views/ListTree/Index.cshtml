@@ -5,5 +5,35 @@
 <div class="container">
     <div class="row">
         <h2>Результаты поиска</h2>
+
+
+        <p>Для ФИО: @ViewBag.FullName</p>
+
+        @if (@ViewBag.Result.Count > 0)
+        {
+            <p>Найдены следующие бабушки:</p>
+            
+            <br />
+
+            @foreach (List<GrandMotherGreatGrandsonModel> listItem in @ViewBag.Result)
+            {
+                <p>
+                    <b>Бабушка: @listItem[0].FullnameGrandmother:</b>
+                    <br \>
+                    Найдены следующие внуки:
+                </p>
+
+                <ul>
+                @foreach(GrandMotherGreatGrandsonModel item in listItem)
+                {
+                        <li>@item.FullnameGreatGrandson</li>
+                }
+                </ul>
+            }
+        } 
+        else
+        {
+            <p>Не найдено бабушек</p>
+        }
     </div>
 </div>
