@@ -1,4 +1,5 @@
 ﻿using FamilyTree.Models;
+using FamilyTree.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -23,15 +24,33 @@ namespace FamilyTree.Controllers
             return View();
         }
 
+        public IActionResult Search(PeopleModel model)
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Search(SearchModel model)
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Index", "ListTree", model);
+                using(PeopleService db = new PeopleService()) 
+                {
+                    var result = db.People
+                        .Where(p => p.Surname == model.Surname && p.Name == model.Name && p.Patronymic == model.Patronymic || p.Surname == model.Surname && p.Name == model.Name)
+                        .ToList();
+
+                    if (result.Count == 1) {
+                        return RedirectToAction("Index", "ListTree", new { @id = result[0].Id });
+                    } 
+                    else
+                    {
+                        return View("Search", result);
+                    }
+                }
             }
 
-            return View("Index", model);
+            return View("Search");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
